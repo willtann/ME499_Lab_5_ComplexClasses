@@ -44,7 +44,7 @@ class GachaponSimulator:
             self.results.append(self._simulate_once())
         return self.results
 
-    def get_summary_results(self):
+    def get_summary_stats(self):
         if len(self.results) == 0:
             mean = None
             stdev = None
@@ -66,12 +66,12 @@ def main():
     else:
         our_sim = GachaponSimulator(int(sys.argv[1]))
         our_sim.simulate(int(sys.argv[2]))
-        our_sim.get_summary_results()
-        print('Running', our_sim.get_summary_results().get('prize-pool'),
-              'prize lottery simulator', our_sim.get_summary_results().get('prize-pool'),
+        our_sim.get_summary_stats()
+        print('Running', our_sim.get_summary_stats().get('prize-pool'),
+              'prize lottery simulator', our_sim.get_summary_stats().get('prize-pool'),
               'times')
-        print('Average number of iterations was', our_sim.get_summary_results().get('mean'),
-              '(standard deviation of', our_sim.get_summary_results().get('stdev'), ')')
+        print('Average number of iterations was', our_sim.get_summary_stats().get('mean'),
+              '(standard deviation of', our_sim.get_summary_stats().get('stdev'), ')')
 
 
 if __name__ == '__main__':
