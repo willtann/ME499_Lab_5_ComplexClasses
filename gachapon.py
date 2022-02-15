@@ -67,11 +67,13 @@ def main():
         our_sim = GachaponSimulator(int(sys.argv[1]))
         our_sim.simulate(int(sys.argv[2]))
         our_sim.get_summary_stats()
-        print('Running', our_sim.get_summary_stats().get('prize-pool'),
-              'prize lottery simulator', our_sim.get_summary_stats().get('prize-pool'),
-              'times')
-        print('Average number of iterations was', our_sim.get_summary_stats().get('mean'),
-              '(standard deviation of', our_sim.get_summary_stats().get('stdev'), ')')
+        # print('Running', our_sim.get_summary_stats().get('prize-pool'),
+        #       'prize lottery simulator', our_sim.get_summary_stats().get('prize-pool'),
+        #       'times')
+        print('Running %s-prize lottery simulator %d times'
+              %(our_sim.get_summary_stats().get('prize-pool'), our_sim.get_summary_stats().get('n')))
+        print('Average number of iterations was %0.2f (standard deviation of: %0.2f)'
+              %(our_sim.get_summary_stats().get('mean'), our_sim.get_summary_stats().get('stdev')))
 
 
 if __name__ == '__main__':
