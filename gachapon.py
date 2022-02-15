@@ -3,6 +3,7 @@ import random
 import numpy as np
 import sys
 
+
 class GachaponSimulator:
 
     # Initialize attribute: size of prize pool
@@ -54,22 +55,24 @@ class GachaponSimulator:
             mean = np.mean(self.results)
             stdev = np.std(self.results)
 
-        summary = {"n": len(self.results), "mean": mean, "stdev": stdev}
+        summary = {"prize-pool": self.n_prizes, "n": len(self.results), "mean": mean, "stdev": stdev}
         return summary
 
 
-if __name__ == '__main__':
-  # Make sure two arguments are provided
-    if not (sys.argv[1:]):
-        raise Exception('Need two arguments ...')
+def main():
+    args = sys.argv[1:]
+    if not len(args) == 3 and args[0] == 'gachapon':
+        raise Exception('should be in form (python Gachapon.py # #')
     else:
-        for arg in sys.argv[1:]:
-            # Getting sentiment.txt for scoring
-            scoring_dict = load_score_dict()
-            # Open and convert the file from user to a string
-            mytext = str(list(open(arg)))
-            # Score text according to the scoring dictionary
-            # 1. Turn string of text into a list of words without any punctuation or capitalization
-            # 2. Go through each word and apply scoring
-            # 3. Sum scores for given .txt
-            score = score_sentence(mytext, scoring_dict)
+        our_sim = GachaponSimulator(int(sys.argv[1]))
+        our_sim.simulate(int(sys.argv[2]))
+        our_sim.get_summary_results()
+        print('Running', our_sim.get_summary_results().get('prize-pool'),
+              'prize lottery simulator', our_sim.get_summary_results().get('prize-pool'),
+              'times')
+        print('Average number of iterations was', our_sim.get_summary_results().get('mean'),
+              '(standard deviation of', our_sim.get_summary_results().get('stdev'), ')')
+
+
+if __name__ == '__main__':
+    main()

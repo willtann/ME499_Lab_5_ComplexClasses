@@ -12,5 +12,7 @@ if __name__ == '__main__':
     # our_sim.simulate(40)
     # print(len(our_sim.results))
     # print(our_sim.get_summary_results())
-    our_sim.reset()
+    our_sim = GachaponSimulator(10)
+    our_sim.simulate(1000)
+    print(our_sim.get_summary_results())
 
