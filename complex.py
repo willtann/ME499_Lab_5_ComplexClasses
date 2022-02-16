@@ -10,7 +10,6 @@ class Complex:
     Outputs:
         - Complex form of the inputs
         - Operations on multiple inputs
-
     """
 
     def __init__(self, re=0.0, im=0.0):
