@@ -31,7 +31,8 @@ class GachaponSimulator:
             for key in prize_pool:
                 if draw == key:
                     scorecard[key] += 1
-        else:  # If all prizes have been won
+        else:
+            # If all prizes have been won
             # print('_simulate_once/my_prizes = ', my_prizes)
             # print('_simulate_once/len(my_prizes) = ', len(my_prizes))
             return len(my_prizes)
@@ -67,9 +68,7 @@ def main():
         our_sim = GachaponSimulator(int(sys.argv[1]))
         our_sim.simulate(int(sys.argv[2]))
         our_sim.get_summary_stats()
-        # print('Running', our_sim.get_summary_stats().get('prize-pool'),
-        #       'prize lottery simulator', our_sim.get_summary_stats().get('prize-pool'),
-        #       'times')
+
         print('Running %s-prize lottery simulator %d times'
               %(our_sim.get_summary_stats().get('prize-pool'), our_sim.get_summary_stats().get('n')))
         print('Average number of iterations was %0.2f (standard deviation of: %0.2f)'
