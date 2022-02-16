@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
     a = Complex(2.0, 3.0)
     print(a + Complex(-1.5, 2))
-    print(type(a))
+    # print(type(a))
 
 
 
