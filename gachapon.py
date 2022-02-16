@@ -70,9 +70,9 @@ def main():
         our_sim.get_summary_stats()
 
         print('Running %s-prize lottery simulator %d times'
-              %(our_sim.get_summary_stats().get('prize-pool'), our_sim.get_summary_stats().get('n')))
+              % (our_sim.get_summary_stats().get('prize-pool'), our_sim.get_summary_stats().get('n')))
         print('Average number of iterations was %0.2f (standard deviation of: %0.2f)'
-              %(our_sim.get_summary_stats().get('mean'), our_sim.get_summary_stats().get('stdev')))
+              % (our_sim.get_summary_stats().get('mean'), our_sim.get_summary_stats().get('stdev')))
 
 
 if __name__ == '__main__':
